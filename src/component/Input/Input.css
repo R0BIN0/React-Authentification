@@ -1,0 +1,22 @@
+/* ======================== INPUT ======================== */
+
+.input-form {
+  width: 100%;
+  font-family: var(--font-f-text);
+  padding: var(--g-md);
+  font-weight: 700;
+  background: none;
+  border: 1px solid #474747;
+  color: var(--text-light-color);
+  border-radius: 5px;
+  margin-bottom: var(--g-lg);
+  font-size: var(--fs-md);
+}
+
+.input-form::placeholder {
+  color: var(--text-dark-color);
+}
+
+.input-form:focus {
+  border: 1px solid var(--CTA-color);
+}

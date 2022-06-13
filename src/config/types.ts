@@ -1,3 +1,6 @@
-export type Type = {
-  string: string;
+export type Input = {
+  _id: string;
+  type: string;
+  id: string;
+  placeholder: string;
 };
