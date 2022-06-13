@@ -1,5 +1,5 @@
 // General
-import React from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 // Styles
@@ -12,35 +12,44 @@ import Logo from "../../assets/images/Logo.png";
 import InputComponent from "../Input/Input";
 
 // Types
-import { Input } from "../../config/types";
+import { Input, Register } from "../../config/types";
+
+// Data
+
+const registerForm: Input[] = [
+  {
+    _id: uuidv4(),
+    type: "text",
+    id: "name",
+    placeholder: "Nom",
+  },
+  {
+    _id: uuidv4(),
+    type: "email",
+    id: "email",
+    placeholder: "Email",
+  },
+  {
+    _id: uuidv4(),
+    type: "password",
+    id: "password",
+    placeholder: "Mot de passe",
+  },
+  {
+    _id: uuidv4(),
+    type: "password",
+    id: "confirmPassword",
+    placeholder: "Confirmation du mot de passe",
+  },
+];
 
 export default function Layout() {
-  const registerForm: Input[] = [
-    {
-      _id: uuidv4(),
-      type: "text",
-      id: "name",
-      placeholder: "Nom",
-    },
-    {
-      _id: uuidv4(),
-      type: "email",
-      id: "email",
-      placeholder: "Email",
-    },
-    {
-      _id: uuidv4(),
-      type: "password",
-      id: "password",
-      placeholder: "Mot de passe",
-    },
-    {
-      _id: uuidv4(),
-      type: "password",
-      id: "confirmPassword",
-      placeholder: "Confirmation du mot de passe",
-    },
-  ];
+  const [formData, setFormData] = useState<Register>({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   return (
     <div className="container-grid">
@@ -66,7 +75,11 @@ export default function Layout() {
           <form>
             <div className="input-container">
               {registerForm.map((item) => (
-                <InputComponent {...item} />
+                <InputComponent
+                  {...item}
+                  formData={formData}
+                  setFormData={setFormData}
+                />
               ))}
             </div>
             <div className="terms-container">
