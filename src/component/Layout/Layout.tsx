@@ -23,9 +23,6 @@ const Layout: FC<Props & FormData> = ({ data, setData, formTemplate }) => {
     <div className="container-grid">
       <div className="container-grid-left">
         <div className="container-grid-left-bg">
-          <div className="logo-container-left">
-            <img src={Logo} alt="Logo de l'entreprise" />
-          </div>
           <div className="txt-container-left">
             <span>89%</span>
             <p>time saved in total compared to project not using Hub</p>

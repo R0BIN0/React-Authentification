@@ -21,18 +21,6 @@
   z-index: 1;
 }
 
-/* === logo-container === */
-
-.logo-container-left {
-  position: absolute;
-  top: var(--g-6xl);
-  left: var(--g-6xl);
-}
-
-.logo-container-left img {
-  width: 45px;
-}
-
 /* === txt-container === */
 
 .txt-container-left {
@@ -239,15 +227,6 @@ form {
     height: 400px;
   }
 
-  .logo-container-left {
-    top: var(--g-3xl);
-    left: var(--g-3xl);
-  }
-
-  .logo-container-left img {
-    width: 40px;
-  }
-
   .background-container {
     background-position-y: -300px;
   }
@@ -256,14 +235,5 @@ form {
 @media screen and (max-width: 500px) {
   .container-grid-left {
     height: 350px;
-  }
-
-  .logo-container-left {
-    top: var(--g-2xl);
-    left: var(--g-2xl);
-  }
-
-  .logo-container-left img {
-    width: 35px;
   }
 }
