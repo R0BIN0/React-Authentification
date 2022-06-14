@@ -1,6 +1,6 @@
 // General
-import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { FC } from "react";
+import { Link } from "react-router-dom";
 
 // Styles
 import "./Layout.css";
@@ -12,45 +12,13 @@ import Logo from "../../assets/images/Logo.png";
 import InputComponent from "../Input/Input";
 
 // Types
-import { Input, Register } from "../../config/types";
+import { FormData, Input } from "../../config/types";
 
-// Data
+type Props = {
+  formTemplate: Input[];
+};
 
-const registerForm: Input[] = [
-  {
-    _id: uuidv4(),
-    type: "text",
-    id: "name",
-    placeholder: "Nom",
-  },
-  {
-    _id: uuidv4(),
-    type: "email",
-    id: "email",
-    placeholder: "Email",
-  },
-  {
-    _id: uuidv4(),
-    type: "password",
-    id: "password",
-    placeholder: "Mot de passe",
-  },
-  {
-    _id: uuidv4(),
-    type: "password",
-    id: "confirmPassword",
-    placeholder: "Confirmation du mot de passe",
-  },
-];
-
-export default function Layout() {
-  const [formData, setFormData] = useState<Register>({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-
+const Layout: FC<Props & FormData> = ({ data, setData, formTemplate }) => {
   return (
     <div className="container-grid">
       <div className="container-grid-left">
@@ -74,20 +42,16 @@ export default function Layout() {
           </p>
           <form>
             <div className="input-container">
-              {registerForm.map((item) => (
-                <InputComponent
-                  {...item}
-                  formData={formData}
-                  setFormData={setFormData}
-                />
+              {formTemplate.map((item) => (
+                <InputComponent {...item} data={data} setData={setData} />
               ))}
             </div>
             <div className="terms-container">
               <input type="checkbox" />
               <p>
-                I agree with Hub's <a href="/">Terms</a>,{" "}
-                <a href="/">Privacy Policy</a> and <a href="/">E-Sign</a>{" "}
-                consent.
+                I agree with Hub's <Link to="/">Terms</Link>,{" "}
+                <Link to="/">Privacy Policy</Link> and{" "}
+                <Link to="/signin">E-Sign</Link> consent.
               </p>
             </div>
             <div className="button-container">
@@ -103,4 +67,6 @@ export default function Layout() {
       </div>
     </div>
   );
-}
+};
+
+export default Layout;

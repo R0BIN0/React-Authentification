@@ -11,14 +11,14 @@ const InputComponent: FC<Input & FormData> = ({
   type,
   id,
   placeholder,
-  formData,
-  setFormData,
+  data,
+  setData,
 }) => {
   const updateInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const target = e.target.getAttribute("id");
     if (target) {
-      const newObj = { ...formData, [target]: e.target.value };
-      setFormData(newObj);
+      const newObj = { ...data, [target]: e.target.value };
+      setData(newObj);
     }
   };
 

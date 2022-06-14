@@ -5,9 +5,11 @@ export type Input = {
   placeholder: string;
 };
 
+export type Connexion = Register | Login;
+
 export type FormData = {
-  formData: Register;
-  setFormData: React.Dispatch<React.SetStateAction<Register>>;
+  data: Connexion;
+  setData: React.Dispatch<React.SetStateAction<Connexion>>;
 };
 
 export type Register = {
@@ -15,4 +17,9 @@ export type Register = {
   email: string;
   password: string;
   confirmPassword: string;
+};
+
+export type Login = {
+  name: string;
+  password: string;
 };
