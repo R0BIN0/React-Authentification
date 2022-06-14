@@ -5,6 +5,16 @@ export type Input = {
   placeholder: string;
 };
 
+export type LayoutData = {
+  number: string;
+  number_desc: string;
+  title: string;
+  subtitle: string;
+  switch_txt: string;
+  switch_link: string;
+  href: string;
+};
+
 export type Connexion = Register | Login;
 
 export type FormData = {

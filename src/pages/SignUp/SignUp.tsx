@@ -9,9 +9,21 @@ import "./SignUp.css";
 import Layout from "../../component/Layout/Layout";
 
 // Types
-import { Input, Connexion } from "../../config/types";
+import { Connexion, Input, LayoutData } from "../../config/types";
 
 // Data
+
+const pageData: LayoutData = {
+  number: "632",
+  number_desc:
+    "clients nous font confiance pour la gestion de leurs logiciels informatiques",
+  title: "Rejoignez-nous sans plus attendre !",
+  subtitle:
+    "C'est avec une gestion inégalable de votre parc numérique que nous rayonnons et que nous vous aidons à en faire de même !",
+  switch_txt: "Vous avez déjà un compte ?",
+  switch_link: "Se connecter",
+  href: "/signin",
+};
 
 const formTemplate: Input[] = [
   {
@@ -49,6 +61,11 @@ export default function SignUp() {
   });
 
   return (
-    <Layout data={formData} setData={setFormData} formTemplate={formTemplate} />
+    <Layout
+      pageData={pageData}
+      data={formData}
+      setData={setFormData}
+      formTemplate={formTemplate}
+    />
   );
 }

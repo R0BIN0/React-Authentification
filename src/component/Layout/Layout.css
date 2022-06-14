@@ -93,7 +93,7 @@
 
 .subtitle-container {
   color: var(--text-dark-color);
-  max-width: 800px;
+  max-width: 700px;
   margin-bottom: var(--g-lg);
   line-height: 1.5;
 }
