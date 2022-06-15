@@ -10,6 +10,7 @@ import InputComponent from "../Input/Input";
 
 // Types
 import { FormData, Input, LayoutData } from "../../config/types";
+import Button from "../Button/Button";
 
 type Props = {
   pageData: LayoutData;
@@ -57,9 +58,7 @@ const Layout: FC<Props & FormData> = ({
                 <Link to="/signin">Signatures éléctroniques</Link>.
               </p>
             </div>
-            <div className="button-container">
-              <button type="submit">Continuer</button>
-            </div>
+            <Button title="Continuer" />
           </form>
           <div className="switch-page">
             <p>

@@ -169,19 +169,6 @@ form {
   color: var(--CTA-color);
 }
 
-/* button-container */
-
-.button-container button {
-  margin-top: var(--g-3xl);
-  padding: var(--g-lg) var(--g-3xl);
-  color: var(--text-light-color);
-  font-family: var(--font-f-text);
-  background-color: var(--CTA-color);
-  font-size: var(--fs-s);
-  font-weight: 600;
-  border-radius: 5px;
-}
-
 /* === switch-page === */
 
 .switch-page {
