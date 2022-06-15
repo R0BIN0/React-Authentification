@@ -1,6 +1,6 @@
 // General
 import { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // Styles
 import "./Layout.css";
@@ -23,6 +23,8 @@ const Layout: FC<Props & FormData> = ({
   formTemplate,
   pageData,
 }) => {
+  const { pathname } = useLocation();
+
   return (
     <div className="container-grid">
       <div className="container-grid-left">
@@ -49,15 +51,16 @@ const Layout: FC<Props & FormData> = ({
                 />
               ))}
             </div>
-            <div className="terms-container">
-              <input type="checkbox" />
-              <p>
-                Je suis d'accord avec les <Link to="/">Termes</Link>,{" "}
-                <Link to="/">Politique de confidentialité</Link> et le
-                consentement aux{" "}
-                <Link to="/signin">Signatures éléctroniques</Link>.
-              </p>
-            </div>
+            {pathname === "/" && (
+              <div className="terms-container">
+                <input type="checkbox" />
+                <p>
+                  Je suis d'accord avec les <Link to="/">Termes</Link>,{" "}
+                  <Link to="/">Politique de confidentialité</Link> et le
+                  consentement aux <Link to="/">Signatures éléctroniques</Link>.
+                </p>
+              </div>
+            )}
             <Button title="Continuer" />
           </form>
           <div className="switch-page">
