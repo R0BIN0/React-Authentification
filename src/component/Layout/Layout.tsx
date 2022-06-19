@@ -1,5 +1,5 @@
 // General
-import { FC } from "react";
+import { FC, FormEvent } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 // Styles
@@ -15,6 +15,7 @@ import Button from "../Button/Button";
 type Props = {
   pageData: LayoutData;
   formTemplate: Input[];
+  formHandler: (e: FormEvent) => void;
 };
 
 const Layout: FC<Props & FormData> = ({
@@ -22,6 +23,7 @@ const Layout: FC<Props & FormData> = ({
   setData,
   formTemplate,
   pageData,
+  formHandler,
 }) => {
   const { pathname } = useLocation();
 
@@ -40,7 +42,7 @@ const Layout: FC<Props & FormData> = ({
         <div className="container-grid-right-wrapper">
           <h1 className="title-container">{pageData.title}</h1>
           <p className="subtitle-container">{pageData.subtitle}</p>
-          <form>
+          <form onSubmit={(e) => formHandler(e)}>
             <div className="input-container">
               {formTemplate.map((item) => (
                 <InputComponent

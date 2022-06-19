@@ -190,4 +190,5 @@ a {
 }
 body {
   line-height: 1;
+  background-color: var(--secondary-dark-color);
 }

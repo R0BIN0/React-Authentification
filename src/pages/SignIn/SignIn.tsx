@@ -1,5 +1,5 @@
 // General
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 // Styles
@@ -10,6 +10,9 @@ import Layout from "../../component/Layout/Layout";
 
 // Types
 import { Connexion, Input, LayoutData } from "../../config/types";
+
+// Hooks
+import useAuthentification from "../../hooks/useAuthentification";
 
 // Data
 
@@ -41,10 +44,17 @@ const formTemplate: Input[] = [
 ];
 
 export default function SignIn() {
+  const { sendAuthentification } = useAuthentification();
+
   const [formData, setFormData] = useState<Connexion>({
     name: "",
     password: "",
   });
+
+  const formHandler = (e: FormEvent) => {
+    e.preventDefault();
+    sendAuthentification("/api/v1/login", formData);
+  };
 
   return (
     <Layout
@@ -52,6 +62,7 @@ export default function SignIn() {
       data={formData}
       setData={setFormData}
       formTemplate={formTemplate}
+      formHandler={formHandler}
     />
   );
 }
