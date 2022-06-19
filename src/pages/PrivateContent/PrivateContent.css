@@ -1,0 +1,20 @@
+.private-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  text-align: center;
+  padding: 0 var(--g-4xl);
+}
+
+.private-container p {
+  font-family: var(--font-f-title);
+  color: var(--text-light-color);
+  font-weight: 500;
+}
+
+.private-container p strong {
+  font-weight: 800;
+}
